@@ -1,0 +1,11 @@
+<% layout('layout') -%>
+
+<div class="content-area -yellow -arrow-down u-text-center">
+  <h1>Unassigned Issues:</h1>
+</div>
+
+<div class="content-area">
+  <% issues.forEach((issue) => { %>
+    <p><a href="https://generalassembly.atlassian.net/browse/<%= issue.key %>"><%= issue.key %>: <%= issue.fields.summary %></a></p>
+  <% }) %>
+</div>
