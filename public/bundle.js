@@ -21522,7 +21522,7 @@
 	var Header = function Header() {
 	  return _react2.default.createElement(
 	    "div",
-	    { className: "header" },
+	    { className: "main-header u-text-right" },
 	    _react2.default.createElement(
 	      "h3",
 	      null,
