@@ -5,7 +5,11 @@
 </div>
 
 <div class="content-area">
-  <% issues.forEach((issue) => { %>
-    <p><a href="https://generalassembly.atlassian.net/browse/<%= issue.key %>"><%= issue.key %>: <%= issue.fields.summary %></a></p>
-  <% }) %>
+  <% if (issues.length < 1) { %>
+    <p>Looks like no one needs help on anything at all. Huh.</p>
+  <% } else { %>
+    <% issues.forEach((issue) => { %>
+      <p><a href="https://generalassembly.atlassian.net/browse/<%= issue.key %>"><%= issue.key %>: <%= issue.fields.summary %></a></p>
+    <% }) %>
+  <% } %>
 </div>

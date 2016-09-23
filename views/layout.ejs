@@ -5,9 +5,29 @@
   <title>WOW</title>
   <link href="https://s3.amazonaws.com/ga-patterns/css/ga-patterns-latest.min.css" rel="stylesheet" />
 
+<!-- temporary styles for funsies -->
+<style>
+  .main-header {
+    background-image: url('http://i.imgur.com/xo9JlSy.png');
+    background-size: cover;
+    background-position: 50% 15%;
+    color: #FFF;
+    text-shadow: 1px 1px 1px #000;
+    padding: 3em;
+  }
+</style>
+
 </head>
 <body>
   <main role="main" class="main-content">
+    <div class="g-row">
+      <div class="g-column">
+        <div class="content-area u-text-right main-header">
+          <h3>Become a</h3>
+          <h1>GA Hero!</h1>
+        </div>
+      </div>
+    </div>
     <div class="g-row">
       <div class="g-column">
         <%- body %>

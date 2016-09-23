@@ -9,6 +9,8 @@ var engine = require('ejs-locals')
 app.engine('ejs', engine)
 app.set('view engine', 'ejs');
 
+app.use(express.static('public'));
+
 app.get('/', (req, res) => {
   request({ url: `https://${config.jira_hostname}/rest/api/2/search?jql=labels=ga-hero+AND+assignee=Empty`,
             headers: {
@@ -17,7 +19,6 @@ app.get('/', (req, res) => {
             encoding: 'utf8'
           }, (err, response, body) => {
             data = JSON.parse(body)
-            console.log(body)
             res.render('index', {issues: data.issues})
           })
 })
