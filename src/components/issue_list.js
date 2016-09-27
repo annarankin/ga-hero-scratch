@@ -1,9 +1,9 @@
 import React from 'react'
 
-const IssueList = () => {
+const IssueList = ({startAt, maxResults, total}) => {
   return(
     <div className="issue-list">
-      <p>Issues go here</p>
+      <p>{`Showing ${startAt}-${maxResults} of ${total} issues.`}</p>
     </div>
   )
 }
