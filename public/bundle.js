@@ -58,7 +58,7 @@
 
 	var _components = __webpack_require__(172);
 
-	__webpack_require__(175);
+	__webpack_require__(176);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -21564,6 +21564,54 @@
 /* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _issue = __webpack_require__(175);
+
+	var _issue2 = _interopRequireDefault(_issue);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var IssueList = function IssueList(_ref) {
+	  var startAt = _ref.startAt;
+	  var maxResults = _ref.maxResults;
+	  var total = _ref.total;
+	  var issues = _ref.issues;
+
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'issue-list' },
+	    _react2.default.createElement(
+	      'p',
+	      null,
+	      'Showing ' + startAt + '-' + (maxResults < total ? maxResults : total) + ' of ' + total + ' issues.'
+	    ),
+	    _react2.default.createElement(
+	      'ol',
+	      null,
+	      issues.map(function (issue) {
+	        return _react2.default.createElement(_issue2.default, _extends({}, issue, { issueKey: issue.key }));
+	      })
+	    )
+	  );
+	};
+
+	exports.default = IssueList;
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -21576,26 +21624,27 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var IssueList = function IssueList(_ref) {
-	  var startAt = _ref.startAt;
-	  var maxResults = _ref.maxResults;
-	  var total = _ref.total;
+	var Issue = function Issue(_ref) {
+	  var issueKey = _ref.issueKey;
+	  var fields = _ref.fields;
+	  var renderedFields = _ref.renderedFields;
 
 	  return _react2.default.createElement(
-	    "div",
-	    { className: "issue-list" },
+	    "li",
+	    { className: "issue" },
 	    _react2.default.createElement(
 	      "p",
 	      null,
-	      "Showing " + startAt + "-" + maxResults + " of " + total + " issues."
-	    )
+	      issueKey + ": " + fields.summary
+	    ),
+	    _react2.default.createElement("p", { dangerouslySetInnerHTML: { __html: renderedFields.description } })
 	  );
 	};
 
-	exports.default = IssueList;
+	exports.default = Issue;
 
 /***/ },
-/* 175 */
+/* 176 */
 /***/ function(module, exports) {
 
 	(function(self) {
